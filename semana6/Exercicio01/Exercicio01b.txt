@@ -1,0 +1,15 @@
+TCP (Protocolo de Controle de Transmissão): O TCP não possui um limite de tamanho fixo para os pacotes, pois foi projetado para gerenciar fluxos de dados de tamanhos variáveis. No entanto, a implementação do TCP em sistemas operacionais geralmente considera o MTU (Unidade Máxima de Transmissão) da rede subjacente para determinar o tamanho máximo dos segmentos TCP a serem enviados. O MTU representa o tamanho máximo de um pacote que a rede pode transmitir sem a necessidade de fragmentação. Em redes Ethernet comuns, o MTU padrão é de 1500 bytes, portanto, os segmentos TCP geralmente não ultrapassam esse tamanho. Entretanto, em redes de alta velocidade com MTUs maiores, os segmentos TCP podem ser mais extensos.
+
+UDP (Protocolo de Datagrama de Usuário): O UDP também não tem um limite fixo de tamanho para os pacotes. Ele permite o envio de datagramas de tamanhos variáveis. É importante observar que, em redes com MTUs menores, como a Internet pública, podem ocorrer problemas se você tentar enviar datagramas muito grandes, pois eles podem ser fragmentados ou descartados. Portanto, é aconselhável manter os datagramas UDP pequenos o suficiente para evitar a fragmentação.
+
+Para transferir arquivos grandes pela Internet, existem várias abordagens:
+
+1. Dividir e Transmitir em Pacotes Pequenos: Você pode dividir o arquivo grande em pedaços menores e transmiti-los separadamente. Isso pode ser feito usando qualquer protocolo de transporte, como HTTP (por meio de várias solicitações HTTP), FTP ou até mesmo protocolos TCP ou UDP personalizados. O destinatário pode então receber essas partes e recriar o arquivo original.
+
+2. Usar Protocolos de Transferência de Arquivos: Protocolos dedicados de transferência de arquivos, como FTP (Protocolo de Transferência de Arquivos) ou SFTP (Protocolo de Transferência de Arquivos Seguro), são projetados para transferir arquivos grandes de forma eficiente pela Internet. Eles também oferecem recursos para retomar transferências interrompidas e verificar a integridade do arquivo.
+
+3. Comprimir Arquivos: Antes da transmissão, é possível comprimir o arquivo grande em um formato compactado, como ZIP. Isso reduzirá o tamanho do arquivo e economizará largura de banda durante a transferência. O destinatário pode descompactar o arquivo após o download.
+
+4. Armazenamento em Nuvem e Compartilhamento de Links: Uma abordagem conveniente para compartilhar arquivos grandes é fazer o upload do arquivo para um serviço de armazenamento em nuvem, como Google Drive, Dropbox ou OneDrive, e, em seguida, compartilhar um link de download com os destinatários. Isso elimina a necessidade de transferir o arquivo diretamente pela Internet.
+
+5. Transferência P2P (Peer-to-Peer): Para transferências rápidas de arquivos grandes, considere o uso de protocolos P2P, como BitTorrent. Isso permite que várias fontes contribuam para a transferência do arquivo, acelerando o processo.
